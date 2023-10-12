@@ -3,7 +3,7 @@ from streamlit_lottie import st_lottie
 import requests
 
 def app():
-    st.title('CURRENCY CONVERTER') 
+    st.title('CURRENCY CONVERTER')  
 
 
     # st.markdown('<h1 style="font-size: 40px; text-align: justify;">CURRENCY CONVERTER</h1>', unsafe_allow_html=True)
