@@ -1,7 +1,6 @@
 import streamlit as st
 from streamlit_lottie import st_lottie
 import requests
-import json
 
 def app():
     st.title('CURRENCY CONVERTER')
@@ -11,8 +10,10 @@ def app():
     
     st_lottie(requests.get("https://lottie.host/5d6e1b3c-deb7-4145-ac9c-0513f0dab97f/332WhxMQk1.json").json(), height=250, key="Into1")
     
-    with open('Data/current_currencies.json') as file:
-        currencies = json.load(file)
+    url = "https://api.frankfurter.app"
+    endpoint = f"{url}/currencies"
+    respond = requests.get(endpoint).json()
+    currencies = {value: key for key, value in respond.items()}
 
     from_currency=st.sidebar.selectbox("Elige Moneda a cambiar",
                                        currencies.keys())
@@ -21,8 +22,6 @@ def app():
                                      currencies.keys())
     
     amount = 100000000000000000000000000000000000000000
-    
-    url = "https://api.frankfurter.app"
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
     
