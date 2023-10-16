@@ -20,13 +20,13 @@ def app():
     to_currency=st.sidebar.selectbox("Elige Moneda a recibir", #tenemos que hacer codigo para no poder meter la moneda escrita enteriormente
                                      currencies.keys())
     
-    amount = 
+    amount = 100000000000000000000000000000000000000000
     
     url = "https://api.frankfurter.app"
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
     
-    
+    converted_value = respond['rates'][currencies[to_currency]]
     
     # if Ciudad == "EURO":
 
