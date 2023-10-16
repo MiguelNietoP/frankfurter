@@ -9,8 +9,8 @@ from streamlit_option_menu import option_menu    #Libreria necesaria para trabaj
 from datetime import date,datetime
 
 #Importamos funciones de codigo en otros archivos
-from APP import app
-from autores import Autores
+from APP1 import app
+from autores1 import Autores
 
 # Cargamos los DataFrames necesarios para el proyecto. Tengo todos los del EDA.
 
@@ -40,6 +40,7 @@ def main():
 
     if opcion == 'APP':
         app()
+
 
     #################################### AUTORES ####################################################
     #################################################################################################

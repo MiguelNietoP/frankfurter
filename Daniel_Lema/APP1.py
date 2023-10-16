@@ -42,5 +42,5 @@ def app():
 
 
 
-if __name__ == "__APP__":
+if __name__ == "__main__":
     app()    
