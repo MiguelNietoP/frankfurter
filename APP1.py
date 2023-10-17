@@ -11,8 +11,10 @@ def app():
     st_lottie(requests.get("https://lottie.host/5d6e1b3c-deb7-4145-ac9c-0513f0dab97f/332WhxMQk1.json").json(), height=250, key="Into1")
     
     url = "https://api.frankfurter.app"
+    
     endpoint = f"{url}/currencies"
     respond = requests.get(endpoint).json()
+    
     currencies = {value: key for key, value in respond.items()}
 
     from_currency=st.sidebar.selectbox("Elige Moneda a cambiar",
@@ -21,12 +23,14 @@ def app():
     to_currency=st.sidebar.selectbox("Elige Moneda a recibir", #tenemos que hacer codigo para no poder meter la moneda escrita enteriormente
                                      currencies.keys())
     
-    amount = st.number_input('Ingresa un entero', min_value=0, step=1) # poner lo que sea para que metan los datos
+    amount = st.number_input('Ingresa la cantidad a convertir', min_value=0, step=1)
     
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
     
     converted_value = respond['rates'][currencies[to_currency]]
+    
+    st.write(converted_value)
     
     # if Ciudad == "EURO":
 
