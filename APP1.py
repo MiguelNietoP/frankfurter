@@ -42,17 +42,6 @@ def app():
     #     st.slider("Selecciona los metros cuadrados de tu vivienda:", min_value=0, max_value=300, value=75, step=1)    
 
     # elif Ciudad == "DOLLAR":
-    
-    
-
-
-# Slider de selección Clasificación.
-Clasificacion= ['En trámite','No indicado','Disponible','Pendiente de completar','Exento']
-st.selectbox("Selecciona si tiene el certificado energético:", Clasificacion)
-
-
-
-
 
 
 if __name__ == "__main__":
