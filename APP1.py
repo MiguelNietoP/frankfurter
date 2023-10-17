@@ -23,14 +23,16 @@ def app():
     to_currency=st.sidebar.selectbox("Elige Moneda a recibir", #tenemos que hacer codigo para no poder meter la moneda escrita enteriormente
                                      currencies.keys())
     
-    amount = st.number_input('Ingresa la cantidad a convertir', min_value=0, step=1)
+    amount = st.number_input('Ingresa la cantidad a convertir', min_value=1, max_value=1_000_000, step=1)
     
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
     
-    converted_value = respond['amount']
+    st.write(respond)
     
-    st.write(converted_value)
+    # converted_value = respond['amount']
+    
+    # st.write(converted_value)
     
     # if Ciudad == "EURO":
 
