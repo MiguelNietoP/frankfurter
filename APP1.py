@@ -21,7 +21,7 @@ def app():
     to_currency=st.sidebar.selectbox("Elige Moneda a recibir", #tenemos que hacer codigo para no poder meter la moneda escrita enteriormente
                                      currencies.keys())
     
-    amount = 100000000000000000000000000000000000000000 # poner lo que sea para que metan los datos
+    entero = st.number_input('Ingresa un entero', min_value=0, step=1) # poner lo que sea para que metan los datos
     
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
