@@ -19,24 +19,28 @@ def app():
     # currencies = {value: key for key, value in respond.items()}
 
     from_currency=st.sidebar.selectbox("Elige Moneda a cambiar",
-                                       currencies.keys(),
+                                       currencies.values(),
                                        placeholder='Euro')
     
     to_currency=st.sidebar.selectbox("Elige Moneda a recibir",
-                                     currencies.keys(),
+                                     currencies.values(),
                                      placeholder='United States Dollar')
+    
+    currencies = {value: key for key, value in respond.items()}
+    from_currency = currencies[from_currency]
+    to_currency = currencies[to_currency]
     
     amount = st.number_input('Ingresa la cantidad a convertir', min_value=1, max_value=1_000_000, step=1)
     
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
     
-    st.write(respond)
+    to_currency = currencies[to_currency]]
     
-    # converted_value = respond['amount']
+    converted_value = respond['rates'][to_currency]
     
-    # st.write(converted_value)
-    
+    st.write(f'{converted_value} {to_currency}')
+        
     # if Ciudad == "EURO":
 
     #     st.write('<div style="text-align: justify;"> Escoge las características de tu vivienda en Madrid para obtener un precio .</div>', unsafe_allow_html=True)  
