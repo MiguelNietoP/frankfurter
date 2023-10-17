@@ -19,10 +19,12 @@ def app():
     # currencies = {value: key for key, value in respond.items()}
 
     from_currency=st.sidebar.selectbox("Elige Moneda a cambiar",
-                                       currencies.values(), placeholder='Euro')
+                                       currencies.keys(),
+                                       placeholder='Euro')
     
     to_currency=st.sidebar.selectbox("Elige Moneda a recibir",
-                                     currencies.values(), placeholder='United States Dollar')
+                                     currencies.keys(),
+                                     placeholder='United States Dollar')
     
     amount = st.number_input('Ingresa la cantidad a convertir', min_value=1, max_value=1_000_000, step=1)
     
