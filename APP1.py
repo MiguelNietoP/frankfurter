@@ -55,7 +55,7 @@ def app():
         from_currency = currencies[from_currency]
         to_currency = currencies[to_currency]
         
-        init_date = st.sidebar.date_input(label='fecha inicial',
+        init_date = st.sidebar.date_input(label='Fecha inicial',
                                 value=datetime.today()-timedelta(days=90),
                                 min_value=datetime(year=1999, month=1, day=4),
                                 max_value=datetime.today()-timedelta(days=10))
