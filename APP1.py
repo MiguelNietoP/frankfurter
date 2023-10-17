@@ -35,7 +35,7 @@ def app():
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
     
-    to_currency = currencies[to_currency]]
+    to_currency = currencies[to_currency]
     
     converted_value = respond['rates'][to_currency]
     
