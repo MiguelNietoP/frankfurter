@@ -35,7 +35,7 @@ def app():
 
         from_currency=st.sidebar.selectbox("Elige Moneda a cambiar",
                                         currencies_formated.keys(),
-                                        index=9)
+                                        index=8)
             
         to_currency=st.sidebar.selectbox("Elige Moneda a recibir",
                                         currencies_formated.keys(),
