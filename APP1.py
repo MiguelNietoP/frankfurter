@@ -16,7 +16,6 @@ def app():
     respond = requests.get(endpoint).json()
     
     currencies = respond
-    # currencies = {value: key for key, value in respond.items()}
 
     from_currency=st.sidebar.selectbox("Elige Moneda a cambiar",
                                        currencies.values(),
@@ -26,7 +25,7 @@ def app():
                                      currencies.values(),
                                      placeholder='United States Dollar')
     
-    currencies = {value: key for key, value in respond.items()}
+    currencies = {value: key for key, value in currencies.items()}
     from_currency = currencies[from_currency]
     to_currency = currencies[to_currency]
     
@@ -34,8 +33,6 @@ def app():
     
     endpoint = f'{url}/latest?amount={amount}&from={from_currency}&to={to_currency}'
     respond = requests.get(endpoint).json()
-    
-    to_currency = currencies[to_currency]
     
     converted_value = respond['rates'][to_currency]
     
